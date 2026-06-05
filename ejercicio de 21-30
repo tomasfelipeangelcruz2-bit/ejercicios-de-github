@@ -1,1 +1,171 @@
+using System;
 
+class Program
+{
+static void Main(string[] args)
+{
+int opcion = -1;
+   
+    while (opcion != 0)
+    {
+        Console.Clear();
+
+        Console.WriteLine("========= MENU =========");
+        Console.WriteLine("21. Acumulador de Gastos");
+        Console.WriteLine("22. Descuento de Nomina");
+        Console.WriteLine("23. Duplicador de Produccion");
+        Console.WriteLine("24. Reparticion de Herencia");
+        Console.WriteLine("25. Costo de Tarea");
+        Console.WriteLine("26. Actualizacion de Presupuesto");
+        Console.WriteLine("27. Validacion de Igualdad");
+        Console.WriteLine("28. Puntos de Fidelidad");
+        Console.WriteLine("29. Comparacion de Metas");
+        Console.WriteLine("30. Mensaje de Cierre");
+        Console.WriteLine("0. Salir");
+
+        Console.Write("\nSeleccione una opcion: ");
+        opcion = Convert.ToInt32(Console.ReadLine());
+
+        Console.Clear();
+
+        switch (opcion)
+        {
+            case 21:
+
+                double gastoTotal = 0;
+
+                Console.Write("Ingrese el primer gasto: ");
+                gastoTotal += Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Ingrese el segundo gasto: ");
+                gastoTotal += Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Ingrese el tercer gasto: ");
+                gastoTotal += Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Gasto total: $" + gastoTotal);
+                break;
+
+            case 22:
+
+                Console.Write("Ingrese el salario base: ");
+                double salario = Convert.ToDouble(Console.ReadLine());
+
+                salario -= 200;
+
+                Console.WriteLine("Salario final: $" + salario);
+                break;
+
+            case 23:
+
+                Console.Write("Ingrese la cantidad de piezas producidas: ");
+                int piezas = Convert.ToInt32(Console.ReadLine());
+
+                piezas *= 2;
+
+                Console.WriteLine("Produccion duplicada: " + piezas);
+                break;
+
+            case 24:
+
+                Console.Write("Ingrese el monto total de la herencia: ");
+                double herencia = Convert.ToDouble(Console.ReadLine());
+
+                herencia /= 4;
+
+                Console.WriteLine("Cada heredero recibe: $" + herencia);
+                break;
+
+            case 25:
+
+                Console.Write("Ingrese las horas estimadas: ");
+                double horas = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Ingrese la tarifa por hora: ");
+                double tarifa = Convert.ToDouble(Console.ReadLine());
+
+                double costoTotal = horas * tarifa;
+
+                Console.WriteLine("Costo total de la tarea: $" + costoTotal);
+                break;
+
+            case 26:
+
+                double presupuesto = 1000;
+
+                Console.WriteLine("Presupuesto inicial: $" + presupuesto);
+
+                Console.Write("Ingrese el costo de la nueva tarea: ");
+                double nuevaTarea = Convert.ToDouble(Console.ReadLine());
+
+                presupuesto += nuevaTarea;
+
+                Console.WriteLine("Presupuesto actualizado: $" + presupuesto);
+                break;
+
+            case 27:
+
+                string contraseñaCorrecta = "1234";
+
+                Console.Write("Ingrese la contraseña: ");
+                string contraseña = Console.ReadLine();
+
+                bool correcta = contraseña == contraseñaCorrecta;
+
+                Console.WriteLine("¿Contraseña correcta?: " + correcta);
+                break;
+
+            case 28:
+
+                int puntos = 0;
+
+                Console.Write("Ingrese la cantidad de compras realizadas: ");
+                int compras = Convert.ToInt32(Console.ReadLine());
+
+                puntos += compras * 10;
+
+                Console.WriteLine("Puntos acumulados: " + puntos);
+                break;
+
+            case 29:
+
+                Console.Write("Ingrese el presupuesto actual: ");
+                double presupuestoActual = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Ingrese el limite permitido: ");
+                double limite = Convert.ToDouble(Console.ReadLine());
+
+                bool permitido = presupuestoActual <= limite;
+
+                Console.WriteLine("¿El presupuesto esta dentro del limite?: " + permitido);
+                break;
+
+            case 30:
+
+                Console.Write("Ingrese su nombre: ");
+                string nombre = Console.ReadLine();
+
+                string despedida = "Hasta luego, " + nombre;
+
+                Console.WriteLine(despedida);
+                break;
+
+            case 0:
+
+                Console.WriteLine("Saliendo del programa...");
+                break;
+
+            default:
+
+                Console.WriteLine("Opcion invalida");
+                break;
+        }
+
+        if (opcion != 0)
+        {
+            Console.WriteLine("\nPresione una tecla para continuar...");
+            Console.ReadKey();
+        }
+    }
+}
+}
