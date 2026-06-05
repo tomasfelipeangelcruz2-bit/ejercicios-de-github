@@ -1,1 +1,194 @@
+using System;
 
+class Program
+{
+static void Main(string[] args)
+{
+int opcion = -1;
+
+
+    while (opcion != 0)
+    {
+        Console.Clear();
+
+        Console.WriteLine("========= MENU =========");
+        Console.WriteLine("33. Simulador de Cajero");
+        Console.WriteLine("34. Conversor de Moneda");
+        Console.WriteLine("35. Validador de Login");
+        Console.WriteLine("36. Control de Inventario Critico");
+        Console.WriteLine("37. Calculadora de Horas Extra");
+        Console.WriteLine("38. Filtro de Seleccion");
+        Console.WriteLine("39. Resumen de Sprint");
+        Console.WriteLine("40. Conversion de Clima");
+        Console.WriteLine("0. Salir");
+
+        Console.Write("\nSeleccione una opcion: ");
+        opcion = Convert.ToInt32(Console.ReadLine());
+
+        Console.Clear();
+
+        switch (opcion)
+        {
+            case 33:
+
+                double saldoInicial;
+                double retiro;
+                double saldoFinal;
+
+                Console.WriteLine("===== SIMULADOR DE CAJERO =====\n");
+
+                Console.Write("Ingrese el saldo inicial: ");
+                saldoInicial = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Ingrese el valor del retiro: ");
+                retiro = Convert.ToDouble(Console.ReadLine());
+
+                saldoFinal = saldoInicial - retiro;
+
+                Console.WriteLine("\nSaldo restante: $" + saldoFinal);
+                Console.WriteLine("¿El saldo es mayor a 0?: " + (saldoFinal > 0));
+                break;
+
+            case 34:
+
+                double pesos;
+                double dolares;
+                double tasa = 4000;
+
+                Console.WriteLine("===== CONVERSOR DE MONEDA =====\n");
+
+                Console.Write("Ingrese el valor en pesos: ");
+                pesos = Convert.ToDouble(Console.ReadLine());
+
+                dolares = pesos / tasa;
+
+                Console.WriteLine("Valor en dolares: $" + dolares);
+                break;
+
+            case 35:
+
+                string usuario;
+                string clave;
+                bool acceso;
+
+                Console.WriteLine("===== VALIDADOR DE LOGIN =====\n");
+
+                Console.Write("Ingrese el usuario: ");
+                usuario = Console.ReadLine();
+
+                Console.Write("Ingrese la clave: ");
+                clave = Console.ReadLine();
+
+                acceso = usuario == "admin" && clave == "0000";
+
+                Console.WriteLine("¿Acceso permitido?: " + acceso);
+                break;
+
+            case 36:
+
+                int stock;
+
+                Console.WriteLine("===== CONTROL DE INVENTARIO =====\n");
+
+                Console.Write("Ingrese el stock actual: ");
+                stock = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("¿Inventario critico?: " + (stock < 5));
+                break;
+
+            case 37:
+
+                double horasBase;
+                double horasExtra;
+                double pagoHora;
+                double totalPago;
+
+                Console.WriteLine("===== CALCULADORA DE HORAS EXTRA =====\n");
+
+                Console.Write("Ingrese las horas base: ");
+                horasBase = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Ingrese las horas extra: ");
+                horasExtra = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Ingrese el pago por hora: ");
+                pagoHora = Convert.ToDouble(Console.ReadLine());
+
+                totalPago = (horasBase * pagoHora) + (horasExtra * (pagoHora * 1.5));
+
+                Console.WriteLine("Pago total: $" + totalPago);
+                break;
+
+            case 38:
+
+                int experiencia;
+                string certificacion;
+                bool califica;
+
+                Console.WriteLine("===== FILTRO DE SELECCION =====\n");
+
+                Console.Write("Ingrese los años de experiencia: ");
+                experiencia = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("¿Posee certificacion CCNA? (si/no): ");
+                certificacion = Console.ReadLine().ToLower();
+
+                califica = experiencia > 3 && certificacion == "si";
+
+                Console.WriteLine("¿El candidato califica?: " + califica);
+                break;
+
+            case 39:
+
+                double tiempoTotal = 0;
+                double tarea;
+
+                Console.WriteLine("===== RESUMEN DE SPRINT =====\n");
+
+                for (int i = 1; i <= 5; i++)
+                {
+                    Console.Write("Ingrese el tiempo de la tarea " + i + ": ");
+                    tarea = Convert.ToDouble(Console.ReadLine());
+
+                    tiempoTotal += tarea;
+                }
+
+                Console.WriteLine("\nTiempo total acumulado: " + tiempoTotal + " horas");
+                break;
+
+            case 40:
+
+                double celsius;
+                double fahrenheit;
+
+                Console.WriteLine("===== CONVERSION DE CLIMA =====\n");
+
+                Console.Write("Ingrese la temperatura en Celsius: ");
+                celsius = Convert.ToDouble(Console.ReadLine());
+
+                fahrenheit = (celsius * 9 / 5) + 32;
+
+                Console.WriteLine("Temperatura en Fahrenheit: " + fahrenheit);
+                break;
+
+            case 0:
+
+                Console.WriteLine("Saliendo del programa...");
+                break;
+
+            default:
+
+                Console.WriteLine("Opcion invalida");
+                break;
+        }
+
+        if (opcion != 0)
+        {
+            Console.WriteLine("\nPresione una tecla para continuar...");
+            Console.ReadKey();
+        }
+    }
+}
+
+
+}
