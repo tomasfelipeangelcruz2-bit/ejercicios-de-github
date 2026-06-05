@@ -1,1 +1,66 @@
+using System;
 
+class Program
+{
+static void Main(string[] args)
+{
+int opcion = 1;
+   
+    while (opcion == 1)
+    {
+        Console.Clear();
+
+        string destino;
+        string destinoValidado;
+
+        int pasajeros;
+        double costoPersona;
+        double presupuestoTotal;
+        double descuento = 0;
+
+        Console.WriteLine("===== AGENCIA DE VIAJES =====\n");
+
+        Console.Write("Ingrese el destino: ");
+        destino = Console.ReadLine();
+
+        destinoValidado = destino.ToLower();
+        destinoValidado = destinoValidado.Replace("á", "a");
+        destinoValidado = destinoValidado.Replace("é", "e");
+        destinoValidado = destinoValidado.Replace("í", "i");
+        destinoValidado = destinoValidado.Replace("ó", "o");
+        destinoValidado = destinoValidado.Replace("ú", "u");
+
+        Console.Write("Ingrese el numero de pasajeros: ");
+        pasajeros = Convert.ToInt32(Console.ReadLine());
+
+        Console.Write("Ingrese el costo por persona: ");
+        costoPersona = Convert.ToDouble(Console.ReadLine());
+
+        presupuestoTotal = pasajeros * costoPersona;
+
+        if (pasajeros > 5 && destinoValidado == "cancun")
+        {
+            descuento = presupuestoTotal * 0.10;
+            presupuestoTotal -= descuento;
+
+            Console.WriteLine("\nSe aplico un descuento del 10%.");
+        }
+
+        Console.WriteLine("\n===== RESUMEN DEL VIAJE =====");
+        Console.WriteLine("Destino: " + destino);
+        Console.WriteLine("Numero de pasajeros: " + pasajeros);
+        Console.WriteLine("Costo por persona: $" + costoPersona);
+        Console.WriteLine("Descuento aplicado: $" + descuento);
+        Console.WriteLine("Presupuesto total: $" + presupuestoTotal);
+
+        Console.WriteLine("\n===== MENU =====");
+        Console.WriteLine("1. Volver al inicio");
+        Console.WriteLine("0. Salir");
+
+        Console.Write("\nSeleccione una opcion: ");
+        opcion = Convert.ToInt32(Console.ReadLine());
+    }
+
+    Console.WriteLine("\nPrograma finalizado.");
+}
+}
