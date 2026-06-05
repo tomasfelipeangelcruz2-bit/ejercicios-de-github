@@ -1,1 +1,148 @@
-# ejercicios-de-github
+using System;
+
+class Program
+{
+static void Main(string[] args)
+{
+int opcion;
+
+
+    do
+    {
+        Console.Clear();
+
+        Console.WriteLine("===== MENU DE EJERCICIOS =====");
+        Console.WriteLine("1. Identificacion de Usuario");
+        Console.WriteLine("2. Casting Implicito de Enteros");
+        Console.WriteLine("3. Redondeo Legal");
+        Console.WriteLine("4. Captura de Edad");
+        Console.WriteLine("5. Diferencia entre Write y WriteLine");
+        Console.WriteLine("6. Conversion a Booleano");
+        Console.WriteLine("7. Calculadora de Segundos");
+        Console.WriteLine("8. Inversion de Caracteres");
+        Console.WriteLine("9. Formato de Precio");
+        Console.WriteLine("10. Error de Tipos");
+        Console.WriteLine("0. Salir");
+
+        Console.Write("\nSeleccione una opcion: ");
+        opcion = Convert.ToInt32(Console.ReadLine());
+
+        Console.Clear();
+
+        switch (opcion)
+        {
+            case 1:
+
+                Console.Write("Ingrese el nombre del empleado: ");
+                string nombre = Console.ReadLine();
+
+                Console.Write("Ingrese el ID del empleado: ");
+                string id = Console.ReadLine();
+
+                Console.WriteLine("Acceso Concedido: " + nombre + " - ID: " + id);
+                break;
+
+            case 2:
+
+                int numero = 100;
+                double numeroDouble = numero;
+
+                Console.WriteLine("Valor entero: " + numero);
+                Console.WriteLine("Valor convertido a double: " + numeroDouble);
+                break;
+
+            case 3:
+
+                Console.Write("Ingrese una cifra decimal: ");
+                double decimalNumero = Convert.ToDouble(Console.ReadLine());
+
+                int entero = (int)decimalNumero;
+
+                Console.WriteLine("Parte entera: " + entero);
+                break;
+
+            case 4:
+
+                Console.Write("Ingrese su edad: ");
+                int edad = Convert.ToInt32(Console.ReadLine());
+
+                Console.WriteLine("Dentro de 5 años tendra: " + (edad + 5));
+                break;
+
+            case 5:
+
+                Console.Write("Como te llamas? ");
+                string usuario = Console.ReadLine();
+
+                Console.WriteLine("Hola " + usuario);
+                break;
+
+            case 6:
+
+                Console.Write("Ingrese true o false: ");
+                bool valor = Convert.ToBoolean(Console.ReadLine());
+
+                Console.WriteLine("Valor booleano: " + valor);
+                break;
+
+            case 7:
+
+                Console.Write("Ingrese la cantidad de minutos: ");
+                int minutos = Convert.ToInt32(Console.ReadLine());
+
+                int segundos = minutos * 60;
+
+                Console.WriteLine("Equivale a " + segundos + " segundos");
+                break;
+
+            case 8:
+
+                Console.Write("Ingrese una letra: ");
+                char letra = Convert.ToChar(Console.ReadLine());
+
+                int valorNumerico = (int)letra;
+
+                Console.WriteLine("Valor numerico ASCII: " + valorNumerico);
+                break;
+
+            case 9:
+
+                Console.Write("Ingrese el precio: ");
+                double precio = Convert.ToDouble(Console.ReadLine());
+
+                Console.WriteLine("Precio final: $" + precio);
+                break;
+
+            case 10:
+
+                Console.WriteLine("Ejemplo incorrecto:");
+                Console.WriteLine("int numero = Console.ReadLine();");
+
+                Console.WriteLine("\nERROR:");
+                Console.WriteLine("No se puede convertir string a int directamente.");
+
+                Console.WriteLine("\nForma correcta:");
+                Console.WriteLine("int numero = Convert.ToInt32(Console.ReadLine());");
+                break;
+
+            case 0:
+
+                Console.WriteLine("Saliendo del programa...");
+                break;
+
+            default:
+
+                Console.WriteLine("Opcion invalida");
+                break;
+        }
+
+        if (opcion != 0)
+        {
+            Console.WriteLine("\nPresione una tecla para volver al menu...");
+            Console.ReadKey();
+        }
+
+    } while (opcion != 0);
+}
+
+}
