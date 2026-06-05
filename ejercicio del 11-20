@@ -1,1 +1,177 @@
-ejercicio
+       using System;
+
+class Program
+{
+static void Main(string[] args)
+{
+int opcion = -1;
+       
+       while (opcion != 0)
+    {
+        Console.Clear();
+
+        Console.WriteLine("========= MENU =========");
+        Console.WriteLine("11. Calculadora de IVA");
+        Console.WriteLine("12. Residuo de Division");
+        Console.WriteLine("13. Promedio Escolar");
+        Console.WriteLine("14. Incremento de Contador");
+        Console.WriteLine("15. Area de un Rectangulo");
+        Console.WriteLine("16. Validacion de Rango");
+        Console.WriteLine("17. Acceso Preferencial");
+        Console.WriteLine("18. Diferencia de Valores");
+        Console.WriteLine("19. Inversion Logica");
+        Console.WriteLine("20. Mayoria de Edad");
+        Console.WriteLine("0. Salir");
+
+        Console.Write("\nSeleccione una opcion: ");
+        opcion = Convert.ToInt32(Console.ReadLine());
+
+        Console.Clear();
+
+        switch (opcion)
+        {
+            case 11:
+
+                Console.Write("Ingrese el valor del producto: ");
+                double valorProducto = Convert.ToDouble(Console.ReadLine());
+
+                double iva = valorProducto * 0.19;
+
+                Console.WriteLine("IVA: $" + iva);
+                Console.WriteLine("Total con IVA: $" + (valorProducto + iva));
+                break;
+
+            case 12:
+
+                Console.Write("Ingrese el primer numero: ");
+                int num1 = Convert.ToInt32(Console.ReadLine());
+
+                Console.Write("Ingrese el segundo numero: ");
+                int num2 = Convert.ToInt32(Console.ReadLine());
+
+                int residuo = num1 % num2;
+
+                Console.WriteLine("Residuo: " + residuo);
+                break;
+
+            case 13:
+
+                Console.Write("Ingrese la primera nota: ");
+                double nota1 = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Ingrese la segunda nota: ");
+                double nota2 = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Ingrese la tercera nota: ");
+                double nota3 = Convert.ToDouble(Console.ReadLine());
+
+                double promedio = (nota1 + nota2 + nota3) / 3;
+
+                Console.WriteLine("Promedio: " + promedio);
+                break;
+
+            case 14:
+
+                int contador = 0;
+
+                Console.WriteLine("Valor inicial: " + contador);
+
+                contador++;
+                Console.WriteLine("Proceso 1: " + contador);
+
+                contador++;
+                Console.WriteLine("Proceso 2: " + contador);
+
+                contador++;
+                Console.WriteLine("Proceso 3: " + contador);
+                break;
+
+            case 15:
+
+                Console.Write("Ingrese la base: ");
+                double baseRectangulo = Convert.ToDouble(Console.ReadLine());
+
+                Console.Write("Ingrese la altura: ");
+                double altura = Convert.ToDouble(Console.ReadLine());
+
+                double area = baseRectangulo * altura;
+
+                Console.WriteLine("Area del rectangulo: " + area);
+                break;
+
+            case 16:
+
+                Console.Write("Ingrese un numero: ");
+                int numeroRango = Convert.ToInt32(Console.ReadLine());
+
+                bool enRango = numeroRango > 0 && numeroRango < 100;
+
+                Console.WriteLine("¿Esta en el rango?: " + enRango);
+                break;
+
+            case 17:
+
+                Console.Write("Ingrese el tipo de usuario: ");
+                string tipoUsuario = Console.ReadLine();
+
+                Console.Write("Ingrese el valor de la compra: ");
+                double compra = Convert.ToDouble(Console.ReadLine());
+
+                bool acceso = tipoUsuario == "Socio" || compra > 500;
+
+                Console.WriteLine("¿Tiene acceso preferencial?: " + acceso);
+                break;
+
+            case 18:
+
+                Console.Write("Ingrese el primer usuario: ");
+                string usuario1 = Console.ReadLine();
+
+                Console.Write("Ingrese el segundo usuario: ");
+                string usuario2 = Console.ReadLine();
+
+                bool diferentes = usuario1 != usuario2;
+
+                Console.WriteLine("¿Son diferentes?: " + diferentes);
+                break;
+
+            case 19:
+
+                bool estado = true;
+
+                Console.WriteLine("Valor original: " + estado);
+
+                bool invertido = !estado;
+
+                Console.WriteLine("Valor invertido: " + invertido);
+                break;
+
+            case 20:
+
+                Console.Write("Ingrese su edad: ");
+                int edadUsuario = Convert.ToInt32(Console.ReadLine());
+
+                bool mayorEdad = edadUsuario >= 18;
+
+                Console.WriteLine("¿Es mayor de edad?: " + mayorEdad);
+                break;
+
+            case 0:
+
+                Console.WriteLine("Saliendo del programa...");
+                break;
+
+            default:
+
+                Console.WriteLine("Opcion invalida");
+                break;
+        }
+
+        if (opcion != 0)
+        {
+            Console.WriteLine("\nPresione una tecla para continuar...");
+            Console.ReadKey();
+        }
+    }
+}
+}
